@@ -22,7 +22,7 @@ devel
 	git branch  # sprawdza jaki to branch
 	git checkout -b nazwa_brancha
 
-## commit 
+## commit i push
 
 punkt przywracania
 
@@ -43,3 +43,7 @@ a na koniec commit
 	git commit 
 	
 	git commit -m "Prosta zmiana"
+
+i push do zdalnego repo:
+
+    git push origin master
