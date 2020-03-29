@@ -1,5 +1,7 @@
 # Podstawy korzystania z GIT
 
+https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
+
 ## konfiguracja
 
 	git config --global user.name=<nazwa>
