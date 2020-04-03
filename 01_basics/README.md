@@ -11,8 +11,9 @@ Przydatne w czasie poznawania Pythona funkcje to `help` i `dir`
 
 #### `dir`
 
-Zwraca dostępne obiekty w bieżącym zasięgu jeśli jest wywołana bez argumentów.
-Wywołana z argumentem zwraca atrybuty i metody danego obiektu.
+Zwraca dostępne obiekty w bieżącym zasięgu jeśli jest wywołana bez
+argumentów. Wywołana z argumentem zwraca atrybuty i metody danego
+obiektu.
 
     >>> dir()
     >>> dir("")
@@ -28,26 +29,26 @@ Pozwala sprawdzić typ obiektu, np:
 
 #### `id`
 
-Zwraca id obiektu. W standardowej edycji Pythona można o tym pomyśleć jako o
-adresie w pamięci
+Zwraca id obiektu. W standardowej edycji Pythona można o tym pomyśleć
+jako o adresie w pamięci
 
     >>> x = 1
     >>> id(x)
 
 ## Liczby
 
-W Pythonie mamy 3 typy liczbowe: `int`, `float`, `complex` odpowiadają one
-liczbom całkowitym, zmiennoprzecinkowym i zespolonym
+W Pythonie mamy 3 typy liczbowe: `int`, `float`, `complex` odpowiadają
+one liczbom całkowitym, zmiennoprzecinkowym i zespolonym
 
 ### int
 
-Funkcja wbudowana `int` pozwala rzutować na typ int - gdy jest to możliwe.
-Wywołana bez argumentu zwraca 0.
+Funkcja wbudowana `int` pozwala rzutować na typ int - gdy jest to
+możliwe. Wywołana bez argumentu zwraca 0.
 
     int()
     int("10")
 
- Przykładowe liczby:
+Przykładowe liczby:
 
     10
     -11
@@ -65,8 +66,8 @@ szesnastkowym
 
     0x123456789abcdef
 
-Liczby całkowite mogą teoretycznie być dowolnie duże.
-Nie ma w Pythonie ograniczeń na ich wielkość.
+Liczby całkowite mogą teoretycznie być dowolnie duże. Nie ma w Pythonie
+ograniczeń na ich wielkość.
 
 ### float
 
@@ -76,9 +77,10 @@ Typ ten pozwala na przechowywanie liczb zmiennoprzecinkowych.
     0.1
     0.125
 
-Tu sprawa się nieco komplikuje. Ze względu na to, że liczby we współczesnych
-komputerach są zapisywane w systemie binarnym.. niektóre liczby - jak choćby te 0.1
-nie mogą być zapisane w sposób dokładny. Zobaczmy:
+Tu sprawa się nieco komplikuje. Ze względu na to, że liczby we
+współczesnych komputerach są zapisywane w systemie binarnym.. niektóre
+liczby - jak choćby te 0.1 nie mogą być zapisane w sposób dokładny.
+Zobaczmy:
 
     >>> 0.1 + 0.1 + 0.1 == 0.3
 
@@ -114,7 +116,7 @@ Liczby zespolone
 #### and
 
 | A     | B     | A and B |
-|:------|:------|:-------- |
+|:------|:------|:--------|
 | False | False | False   |
 | False | True  | False   |
 | True  | False | False   |
@@ -144,8 +146,8 @@ Example:
 
 | A     | not A |
 |:------|:------|
-| False | False |
 | False | True  |
+| True  | False |
 
 Example:
 
