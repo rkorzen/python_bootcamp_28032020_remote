@@ -1,0 +1,35 @@
+Uwaga - poniżej kilka prostych zadań. Zadania realizuj po koleji. Po każdym rozwiązaniu zadania rób commit,
+Np. wpiszesz odpowiedź na zadanie 1 i robisz commit
+
+$ git add .
+$ git commit -m "Odp 1."
+
+potem robisz zadanie drugie
+
+$ git add .
+$ git commit -m "Odp 2."
+
+Umieść odpowiedzi w katalogu sprawdzan w module spr_01.py (zadbaj o to by to było tutaj)
+   - odpowiedzi słowne umieść w formie komentarza
+   - postaraj się napisać kod w oparciu o znane Ci zasady
+
+1. Wymień poznane dotąd struktury danych.
+2. Które z nich są mutowalne a które nie?
+3. Zaimplementuj funkcję realizującą algorytm sortowanie przez wybieranie
+4. Masz słownik
+	
+	zrodla = {"a": 10, "b":30}
+
+Jak bezpiecznie wybrać z tego słównika wartość i przypisać ją do zmiennej, to by nie był rzucony błąd?
+Np. chcesz sprawdzić dla wartości "c", której nie ma w słowniku
+
+5. Zdefiniuj funkcję foo, która przyjmie dowolną liczbę argumentów pozycyjnych i kluczowych
+   funkcja ma wypisać na ile ich jest
+
+   np.:
+
+   >>> foo(10, 20, a=1, b=2, c=3)
+   pozycyjnych: 2
+   kluczowych:  3
+
+Prześlij mi na slacku odpowiedzi w formie linka do pliku z repozytorium
