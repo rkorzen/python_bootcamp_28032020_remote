@@ -18,6 +18,21 @@ class Employee:
         return to_pay
 
 
+class PremiumEmployee(Employee):
+
+    def __init__(self, first_name, last_name, rate_per_hour):
+        super().__init__(first_name, last_name, rate_per_hour)
+        self.bonus = 0
+
+    def give_bonus(self, amount):
+        self.bonus += amount
+
+    def pay_salary(self):
+        to_pay = super().pay_salary()
+        to_pay += self.bonus
+        self.bonus = 0
+        return to_pay
+
 
 class TestEmployee:
 
@@ -45,3 +60,18 @@ class TestEmployee:
         employee.register_time(10)
         assert employee.pay_salary() == 1200
         assert employee.pay_salary() == 0
+
+
+class TestPremiumEmployee:
+    def test_init(self):
+        pe = PremiumEmployee("Jan", "Nowak", 100.00)
+        assert pe
+        assert isinstance(pe, PremiumEmployee)
+        assert isinstance(pe, Employee)
+
+    def test_give_bonus_and_pay_salary(self):
+        pe = PremiumEmployee("Jan", "Nowak", 100.00)
+        pe.register_time(5)
+        pe.give_bonus(1000)
+        assert pe.pay_salary() == 100 * 5 + 1000
+        assert pe.pay_salary() == 0

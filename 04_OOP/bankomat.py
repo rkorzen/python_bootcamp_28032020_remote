@@ -1,8 +1,22 @@
+import pytest
+
+
+class BillException(Exception):
+    pass
+
+
+class NotEnoughSpacForBills(Exception):
+    pass
+
+
 class CashMachine:
-    def __init__(self):
+    def __init__(self, capacity=100):
         self._money = []
+        self.capacity = capacity
 
     def put_money(self, bills):
+        if len(self._money) + len(bills) > self.capacity:
+            raise NotEnoughSpacForBills("Brak miejsca w bankomacie")
         self._money += bills
 
     @property
@@ -10,6 +24,9 @@ class CashMachine:
         return len(self._money) > 0
 
     def withdraw_money(self, amount):
+        if amount % 10 != 0:
+            raise KeyError("Kwota poinna być podzielna przez 10")
+
         to_withdraw = []
 
         for bill in sorted(self._money, reverse=True):
@@ -19,7 +36,8 @@ class CashMachine:
             for bill in to_withdraw:
                 self._money.remove(bill)
             return to_withdraw
-        return []
+        raise BillException(f"brak wystarczającej liczby banknotów dla kwoty {amount}!")
+
 
 class TestCashMachine:
     def test_init(self):
@@ -51,3 +69,20 @@ class TestCashMachine:
         cash_machine = CashMachine()
         cash_machine.put_money([50, 100, 100, 200])
         assert cash_machine.withdraw_money(600) == []
+
+    def test_value_error_when_amount_is_not_divided_by_10(self):
+        cashmachine = CashMachine()
+        cashmachine.put_money([100, 100, 100])
+        with pytest.raises(KeyError):
+            cashmachine.withdraw_money(123)
+
+    def test_bills_exception_when_not_enough_bill_to_withdraw(self):
+        cashmachine = CashMachine()
+        cashmachine.put_money([100, 100, 100])
+        with pytest.raises(BillException):
+            cashmachine.withdraw_money(150)
+
+    def test_not_enought_room_for_bills(self):
+        cm = CashMachine(capacity=10)
+        with pytest.raises(NotEnoughSpacForBills):
+            cm.put_money([100 for i in range(20)])
