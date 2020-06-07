@@ -1,18 +1,13 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
 
-html_template = """<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{title}</title>
-</head>
-<body>
-Wynik: {wynik}
-</body>
-</html>"""
+class Osoba:
+    def __init__(self, imie, nazwisko):
+        self.imie = imie
+        self.nazwisko = nazwisko
+
+    def __repr__(self):
+        return f"{self.imie} {self.nazwisko}"
 
 def div(request, a, b):
     tit = "Dzielenie"
@@ -21,14 +16,18 @@ def div(request, a, b):
     else:
         wyn = a / b
 
-    output = html_template.format(title=tit, wynik=wyn)
-    return HttpResponse(output)
+    context = {"title": tit, "wynik": wyn}
+    return render(
+        request=request,
+        template_name="maths/output.html",
+        context=context
+    )
 
 
 def add(request, a, b):
     tit = "Dodanie"
     wyn = a + b
-    context = {"title": tit, "wynik":wyn}
+    context = {"title": tit, "wynik": wyn}
     return render(
         request=request,
         template_name="maths/output.html",
@@ -37,8 +36,38 @@ def add(request, a, b):
 
 
 def sub(request, a, b):
-    return HttpResponse(f"Wynik {a - b}")
+    tit = "Odejmowanie"
+    wyn = a - b
+    context = {"title": tit, "wynik": wyn}
+    return render(
+        request=request,
+        template_name="maths/output.html",
+        context=context
+    )
 
 
 def mul(request, a, b):
-    return HttpResponse(f"Wynik {a * b}")
+    tit = "Mnożenie"
+    wyn = a * b
+    context = {"title": tit, "wynik": wyn}
+    return render(
+        request=request,
+        template_name="maths/output.html",
+        context=context
+    )
+
+
+def list_example(request):
+    dane = [1, 2, 'a', 'b']
+
+    slowa = {"dog": "pies", "cat": "kot"}
+
+    osoba = Osoba("Adam", "Korzeniewski")
+
+    context = {"dane": dane, "slowa": slowa, "osoba": osoba}
+
+    return render(
+        request,
+        "maths/list_example.html",
+        context
+    )

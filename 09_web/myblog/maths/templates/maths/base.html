@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        .main {
+            font-size: 1.2em;
+            color: gray
+        }
+
+        header {color: blue}
+        footer {color: red}
+    </style>
+</head>
+<body>
+<header>To jest nagłówek</header>
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
+<footer>to jest stopka</footer>
+</body>
+</html>

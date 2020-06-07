@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <style>
-        .main {
-            font-size: 1.2em;
-            color: gray
-        }
-    </style>
-</head>
-<body>
-<div class="main">
+{% extends "maths/base.html" %}
+{% block content %}
     Wynik: {{ wynik }}
-</div>
-</body>
-</html>
+{% endblock %}

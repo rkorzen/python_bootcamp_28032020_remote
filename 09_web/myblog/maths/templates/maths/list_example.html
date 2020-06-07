@@ -1,0 +1,27 @@
+{% extends "maths/base.html" %}
+
+{% block content %}
+    <ul>
+        <li>{{ dane.0 }}</li>
+        <li>{{ dane.1 }}</li>
+    </ul>
+
+    <ol>
+        {% for el in dane %}
+            <li>{{ el }}</li>
+        {% endfor %}
+    </ol>
+
+    {{ slowa.cat }}
+
+    {{ osoba.imie }}
+
+    {% if osoba.imie == "Rafał" %}
+        <div>Cześć Rafał</div>
+    {% else %}
+        <div>Nie znam Cię</div>
+    {% endif %}
+
+    {{ osoba }}
+
+{% endblock %}
