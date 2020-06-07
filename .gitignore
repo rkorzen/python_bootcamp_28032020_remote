@@ -1,2 +1,5 @@
 .idea
 __pycache__
+.DS_Store
+.ipynb_checkpoints
+09_web/myblog/venv
